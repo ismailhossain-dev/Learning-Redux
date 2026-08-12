@@ -25,7 +25,12 @@ export const counterSlice = createSlice({
 
         //create a decrement function
         decrement: (state) => {
-            state.value  = state.value -1 
+            //- click korle negative chole na jawer jonno bisoy ta fixed korchi 
+            //0 teke value boro na hole nagetive er kaj ta korbe na
+            if(state.value >0){
+                state.value  = state.value -1 
+            }
+            
         }
 
     }
