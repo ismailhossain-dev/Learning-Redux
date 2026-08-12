@@ -1,10 +1,13 @@
+import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
 
 function App() {
+  const value = useSelector((state)=> state.counter.value)
+  const dispatch = useDispatch()
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
       <div className="text-3xl text-red-500 font-bold mb-8">
-        React + Tailwind CSS + Shadcn + Redux
+       Hello Redux
       </div>
 
       {/* Counter UI Card */}
@@ -13,7 +16,7 @@ function App() {
         
         {/* Counter Display */}
         <div className="text-6xl font-extrabold text-gray-900">
-          0
+        {value}
         </div>
 
         {/* Action Buttons */}
