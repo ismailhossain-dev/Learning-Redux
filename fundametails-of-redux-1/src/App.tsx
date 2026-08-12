@@ -1,13 +1,21 @@
-import { useDispatch, useSelector } from 'react-redux'
+// import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
-import { decrement, increment } from './redux/counter/counterSlice'
+import { decrement, incrementByValue } from './redux/counter/counterSlice'
+import { useAppDispatch, useAppSelector } from './redux/hooks'
 
 function App() {
   //===store.ts er morde amr reducer take counter er morde rakchilam tai amra couter teke value ta nitechi==============
-  const value = useSelector((state)=> state.counter.value)
-
+  //❌❌old
+  // const value = useSelector((state)=> state.counter.value)
   //dispatch ta use korbo jei value ta chage korte chai sekane like increment
-  const dispatch = useDispatch()
+    //❌❌old
+  // const dispatch = useDispatch()
+
+
+  //amra hook.ts hook korar por old version use korbo na amader nijeder koras hook use korbo
+
+  const value = useAppSelector((state) => state.counter.value)
+  const dispatch = useAppDispatch()
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
       <div className="text-3xl text-red-500 font-bold mb-8">
@@ -29,7 +37,8 @@ function App() {
             - Decrement
           </button>
           {/* increment ke must be call kore dite hobe just reference patale hobe na */}
-          <button onClick={()=>dispatch(increment())} className="px-6 py-2.5 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 transition">
+        {/* 1 kore barbe and eta amra couterSlice.ts er morde handle korchi */}
+          <button onClick={()=>dispatch(incrementByValue(1))} className="px-6 py-2.5 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 transition">
             + Increment
           </button>
           
