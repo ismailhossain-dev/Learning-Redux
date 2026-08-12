@@ -1,5 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-
+import { type RootState } from "../store";
 //========we are write all state here in redux=======
 
 //========type define ts=========
@@ -38,7 +38,8 @@ export const counterSlice = createSlice({
     },
   },
 });
-
+//eta korle amader app.ts e   const value = useAppSelector((state) => state.counter.value) eto code leka lagbe na just selectValue ta bole dile hobe
+export const selectValue = (state:RootState) =>state.counter.value;
 export const { increment, decrement, incrementByValue } = counterSlice.actions;
 
 export default counterSlice.reducer;

@@ -1,6 +1,6 @@
 // import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
-import { decrement, incrementByValue } from './redux/counter/counterSlice'
+import { decrement, incrementByValue, selectValue } from './redux/counter/counterSlice'
 import { useAppDispatch, useAppSelector } from './redux/hooks'
 
 function App() {
@@ -13,8 +13,12 @@ function App() {
 
 
   //amra hook.ts hook korar por old version use korbo na amader nijeder koras hook use korbo
+//❌❌old
+  // const value = useAppSelector((state) => state.counter.value)
 
-  const value = useAppSelector((state) => state.counter.value)
+  //select value kaj ta amra  counterSlice er morde kore felsi
+  const value = useAppSelector(selectValue)
+
   const dispatch = useAppDispatch()
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50">
