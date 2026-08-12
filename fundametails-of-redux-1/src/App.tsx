@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './App.css'
 
 function App() {
+  //===store.ts er morde amr reducer take counter er morde rakchilam tai amra couter teke value ta nitechi==============
   const value = useSelector((state)=> state.counter.value)
   const dispatch = useDispatch()
   return (
